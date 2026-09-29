@@ -13,3 +13,4 @@ htmlcov/
 # Transient Codex/Kiro dispatch and raw handoff; publish sanitized evidence instead.
 docs/kiro-task.md
 docs/kiro-result.md
+docs/kiro-ide-finish.md
