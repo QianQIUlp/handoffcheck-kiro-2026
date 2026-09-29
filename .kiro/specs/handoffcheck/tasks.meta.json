@@ -1,0 +1,42 @@
+{
+  "pbtResults": {
+    "8.2 Write and run property test for evidence readiness": {
+      "status": "passed",
+      "failingExample": "Test passed: Property 5 correctly detects empty evidence list case (\"no evidence listed\" reason)",
+      "lastRunTimestamp": 1790678914733
+    },
+    "8.1 Write and run property test for path containment security": {
+      "status": "passed",
+      "failingExample": "Test passed: Property 6 correctly detects all invalid path types (absolute, .., Windows drive, UNC, backslashes)",
+      "lastRunTimestamp": 1790678918093
+    }
+  },
+  "executionHistory": {
+    "8.2 Write and run property test for evidence readiness": [
+      {
+        "executionId": "8a5bab20-fdeb-45bd-b2a7-e99ad32a910e",
+        "chatSessionId": "sess_849b05ca-fb62-4a87-9d0f-b640b132b89f",
+        "timestamp": 1790677758474
+      },
+      {
+        "executionId": "8a5bab20-fdeb-45bd-b2a7-e99ad32a910e",
+        "chatSessionId": "sess_849b05ca-fb62-4a87-9d0f-b640b132b89f",
+        "timestamp": 1790678033601
+      }
+    ],
+    "8. Run native Correctness property tests in the Kiro IDE": [
+      {
+        "executionId": "8a5bab20-fdeb-45bd-b2a7-e99ad32a910e",
+        "chatSessionId": "sess_849b05ca-fb62-4a87-9d0f-b640b132b89f",
+        "timestamp": 1790678033945
+      }
+    ],
+    "8.1 Write and run property test for path containment security": [
+      {
+        "executionId": "84e8483a-4d93-4928-b11d-0f22302270dd",
+        "chatSessionId": "sess_4434769d-7a96-4546-a5cf-966a3e3048fe",
+        "timestamp": 1790678209898
+      }
+    ]
+  }
+}

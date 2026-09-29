@@ -49,7 +49,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest tests -q
 ```
 
-The tests include example-level checks and four Hypothesis properties in [`tests/test_properties.py`](tests/test_properties.py). The latest local run reported **36 passed, 1 skipped**; a Kiro IDE Correctness run has not yet been independently observed. The project Hooks currently use the Windows `.venv\Scripts\python.exe` path.
+The tests include example-level checks and six Hypothesis properties in [`tests/test_properties.py`](tests/test_properties.py). The latest local run reported **38 passed, 1 skipped**. Kiro IDE Spec tasks 8.1 and 8.2 each ran 100 generated examples and recorded native property results; an independent review caught and corrected an initial false positive in the path test before the final local run. The project Hooks currently use the Windows `.venv\Scripts\python.exe` path.
 
 For the optional MCP server, install [`requirements-mcp.txt`](requirements-mcp.txt) into the same virtual environment and start Kiro with that environment's `Scripts` directory first on `PATH`. The project [MCP configuration](.kiro/settings/mcp.json) runs `python -m handoffcheck_mcp`, so `python` must resolve to the environment containing the SDK.
 
