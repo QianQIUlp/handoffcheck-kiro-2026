@@ -1,0 +1,16 @@
+# Kiro native-use evidence
+
+HandoffCheck was developed in Kiro, then checked independently. The observations below come from genuine local Kiro session exports and the IDE Spec result, reviewed on 2026-09-29. Raw sessions stay private because they can contain account and machine details. The linked project files are the inspectable artifacts; this page does not claim that the organizer has accepted a lesson or awarded credits.
+
+| Final form item | Observed Kiro action | Project artifact and verification |
+|---|---|---|
+| 1. Spec | The development session used `validate_spec_format` on the requirements and built the CLI and shared checker from the feature Spec. | [Requirements](../.kiro/specs/handoffcheck/requirements.md), [design](../.kiro/specs/handoffcheck/design.md), [tasks](../.kiro/specs/handoffcheck/tasks.md), [CLI](../handoffcheck.py), [core](../skills/check-handoff/scripts/handoffcheck_core.py). |
+| 2. Steering | A Kiro CLI session recorded `steering_inclusion` for `handoff-constraints.md`. | [Project steering](../.kiro/steering/handoff-constraints.md) states the read-only, evidence-presence limits used by the checker. |
+| 3. Hooks | The native `ContextualHookInvoked` event named `cli-quick-tests` reported `status=completed` after a `UserPromptSubmit` trigger. | [CLI Hook](../.kiro/hooks/cli-quick-tests.json). The configured [IDE save Hook](../.kiro/hooks/save-quick-tests.json) has **no verified trigger**. |
+| 4. Property-based testing | In Kiro IDE, Spec tasks 8.1 and 8.2 ran corrected 100-example properties and updated both native `pbtResults` to `passed`. | [Spec tasks](../.kiro/specs/handoffcheck/tasks.md), [native result metadata](../.kiro/specs/handoffcheck/tasks.meta.json), and [property tests](../tests/test_properties.py). Independent final suite: **38 passed, 1 skipped**. |
+| 5. Powers | Kiro called `kiro_powers` with `activate` and `readSkill`, then executed the installed package's checker on a fresh synthetic case: `READY_TO_REVIEW`, exit code 0. | [Power manifest](../plugin.json), [skill](../skills/check-handoff/SKILL.md), [bundled core](../skills/check-handoff/scripts/handoffcheck_core.py). Installation and use were local. |
+| 6. MCP | Kiro invoked `mcp_handoffcheck_mcp_inspect_example` with `name=missing`; the tool returned `NEEDS_WORK` and the missing evidence path `proofs/missing-file.txt`. | [MCP server](../handoffcheck_mcp.py), [project configuration](../.kiro/settings/mcp.json). An independent stdio check covered four cases. |
+| 7. Custom agent | The `handoff-reviewer` session used `read_file` and `list_directory` to inspect the project. After another read, it corrected an initial mistaken claim that the root CLI was absent. | [Agent configuration](../.kiro/agents/handoff-reviewer.json) allows reading and excludes write, shell, web, and MCP tools. |
+| Free Bonus 2. Package a Kiro power | The official Kiro CLI installed a clean local package; Kiro activated its skill and ran its bundled checker as described above. | [Package manifest](../plugin.json) and [skill](../skills/check-handoff/SKILL.md). Public GitHub installation must be checked after release. |
+
+The seven-lesson completion award depends on organizer acceptance of all seven lessons. These local observations alone do not establish public availability, Final submission, award, or redemption; check those separately.
