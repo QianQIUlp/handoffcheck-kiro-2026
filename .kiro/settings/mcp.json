@@ -1,0 +1,1 @@
+{"mcpServers":{"handoffcheck-mcp":{"command":"python","args":["-m","handoffcheck_mcp"],"disabled":false}}}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project": "ready-demo",
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "Task with valid evidence",
+      "status": "done",
+      "evidence": ["proofs/test-report.txt"]
+    }
+  ]
+}

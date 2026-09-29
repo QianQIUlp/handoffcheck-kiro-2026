@@ -1,0 +1,1 @@
+{"version":"v1","hooks":[{"name":"save-quick-tests","trigger":"PostFileSave","matcher":"handoffcheck_core.py","action":{"type":"command","command":".venv\\Scripts\\python.exe -m pytest tests -q"}}]}

@@ -1,0 +1,1 @@
+{"version":"v1","hooks":[{"name":"cli-quick-tests","trigger":"UserPromptSubmit","action":{"type":"command","command":".venv\\Scripts\\python.exe -m pytest tests -q"}}]}

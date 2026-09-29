@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "handoffcheck",
+  "version": "1.0.0",
+  "description": "Validate handoff manifests and evidence files for AI task交接",
+  "author": {
+    "name": "HandoffCheck contributors"
+  },
+  "keywords": ["handoff", "validation", "evidence", "tasks", "workflow"]
+}

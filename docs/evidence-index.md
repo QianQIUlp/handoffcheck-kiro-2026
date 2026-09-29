@@ -1,0 +1,24 @@
+# HandoffCheck evidence index
+
+This index links the project artifacts to the Kiro University Challenge lesson fields in the [requirement map](challenge-map.md). It separates files that a reader can inspect from local Kiro actions observed during development. As of 2026-09-29, there is no public demo or Final submission; the organizer has not confirmed any credits.
+
+## Reproducible product checks
+
+From the repository root, run the commands in the [README](../README.md#try-the-examples). The three synthetic manifests are [ready](../examples/ready/manifest.json), [missing](../examples/missing/manifest.json), and [invalid](../examples/invalid/manifest.json). Their expected results and exit codes are `READY_TO_REVIEW`/0, `NEEDS_WORK`/1, and `INVALID_MANIFEST`/2. The missing case reports `proofs/missing-file.txt` and selects its first task for follow-up.
+
+The [CLI](../handoffcheck.py) calls the shared [core](../skills/check-handoff/scripts/handoffcheck_core.py). The [tests](../tests/) include four generated-input properties in [test_properties.py](../tests/test_properties.py). The latest observed local test run was **36 passed, 1 skipped**. The checker validates evidence presence and size, not factual correctness.
+
+## Lesson evidence and limits
+
+| Final form item | Inspectable project artifact | Locally observed use | Still needed for complete public evidence |
+|---|---|---|---|
+| 1. Spec-driven development | [Requirements](../.kiro/specs/handoffcheck/requirements.md), [design](../.kiro/specs/handoffcheck/design.md), [tasks](../.kiro/specs/handoffcheck/tasks.md), [CLI](../handoffcheck.py), and [core](../skills/check-handoff/scripts/handoffcheck_core.py) | Kiro CLI generated the Spec and main implementation; independent product checks passed locally. | A concise public demonstration of the native Spec workflow and implementation trace. |
+| 2. Steering | [Project steering](../.kiro/steering/handoff-constraints.md) | Kiro CLI `/context` displayed the steering file as active, and Kiro referenced its constraints. | Show the active context and a concrete effect in the public demonstration. |
+| 3. Hooks | [CLI prompt Hook](../.kiro/hooks/cli-quick-tests.json) and [IDE save Hook](../.kiro/hooks/save-quick-tests.json) | A native Kiro CLI `UserPromptSubmit` trigger completed and supplied a pytest summary of 36 passed, 1 skipped to Kiro's context. | Public replay of that trigger; IDE `PostFileSave` trigger has not been observed. |
+| 4. Property-based testing | [Four Hypothesis properties](../tests/test_properties.py), [pinned test dependencies](../requirements.txt) | Properties ran as part of the local pytest suite. | Run and show Kiro IDE Correctness. Ordinary pytest alone does not establish use of that native workflow. |
+| 5. Powers | [Power manifest](../plugin.json), [skill](../skills/check-handoff/SKILL.md), and [bundled core](../skills/check-handoff/scripts/handoffcheck_core.py) | A clean local copy ran the ready example without the original checkout. | Native Power installation, activation, use on a fresh synthetic case, and public demonstration. |
+| 6. MCP | [Server](../handoffcheck_mcp.py), [project MCP configuration](../.kiro/settings/mcp.json), and [pinned SDK](../requirements-mcp.txt) | Kiro CLI reported the server running with one tool and invoked `inspect_example(name=missing)`. It returned `NEEDS_WORK` and the missing evidence path. An independent stdio client checked four cases. | Show the actual Kiro tool call and how its result informed work in the public demonstration. |
+| 7. Custom agents | [Read-only `handoff-reviewer` configuration](../.kiro/agents/handoff-reviewer.json) | The agent ran in Kiro CLI with only the read tool and inspected the Spec, core, examples, and CLI. Its final review corrected an initial misread of the CLI location. | Show agent selection, tool limits, and the corrected review in the public demonstration. |
+| Free Bonus 2. Package a Kiro power | [Power manifest](../plugin.json), [skill](../skills/check-handoff/SKILL.md), and [core](../skills/check-handoff/scripts/handoffcheck_core.py) | The package structure and a local copy run were checked. | Public repository URL to `plugin.json`, installation from that location, and organizer assessment. |
+
+The all-seven completion award depends on all seven lessons being accepted. Local file checks and CLI observations cannot establish that award. Public repository release, video, social post, Final form submission, and any eventual award or redemption remain unconfirmed.

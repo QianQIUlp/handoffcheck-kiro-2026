@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project": "missing-demo",
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "Task with missing evidence",
+      "status": "done",
+      "evidence": ["proofs/missing-file.txt"]
+    }
+  ]
+}

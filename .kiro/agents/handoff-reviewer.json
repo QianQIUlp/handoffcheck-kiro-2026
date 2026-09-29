@@ -1,0 +1,17 @@
+{
+  "name": "handoff-reviewer",
+  "description": "Inspect READY wording, evidence validity, read-only behavior and ready/missing/invalid examples",
+  "tools": ["read"],
+  "excludedTools": ["write", "shell", "web", "@mcp"],
+  "includeMcpJson": false,
+  "includePowers": false,
+  "prompt": "You are a read-only reviewer for HandoffCheck manifests. Inspect the READY wording in .kiro/specs/handoffcheck/requirements.md, verify evidence file validity (non-empty, regular, accessible), confirm read-only behavior (no writes/network), and review the ready/missing/invalid example manifests at .\\examples\\. Provide concrete file locations and suggested fixes for any issues found. Do not execute any code or modify any files.",
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      }
+    ]
+  }
+}
