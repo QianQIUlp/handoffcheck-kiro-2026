@@ -274,7 +274,7 @@ def is_path_contained(path: Path, root: Path) -> bool:
 
 *For any* evidence path in any manifest and *for any* root directory, if the path contains ".." segments, absolute paths, Windows drive letters, UNC paths, or backslashes, then `validate_paths()` SHALL reject it with exit code 2.
 
-**Validates: Requirements 3.1, 3.2, 3.3, 3.4, 3.5, 3.6**
+**Validates: Requirements 3.1, 3.4**
 
 ### Property 3: Symlink Escape Prevention
 
@@ -292,7 +292,7 @@ def is_path_contained(path: Path, root: Path) -> bool:
 
 *For any* task with status "done" that has an empty evidence array or missing/empty/nonregular evidence files, `check_ready()` SHALL return `False` for readiness and exit with code 1.
 
-**Validates: Requirements 4.5, 4.6, 4.7, 4.8**
+**Validates: Requirements 4.1, 4.2, 4.3**
 
 ### Property 6: Deterministic Output Order
 

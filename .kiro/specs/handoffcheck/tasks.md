@@ -41,5 +41,14 @@
 - [x] Run CLI examples: ready, missing, invalid
 - [x] MCP inspect_example validated (missing example → NEEDS_WORK)
 
-## Not Implemented (IDE-only)
-- [ ] Native IDE Correctness property workflow
+## Native IDE Correctness (not yet verified)
+
+- [ ] 8. Run native Correctness property tests in the Kiro IDE
+  - [ ]* 8.1 Write and run property test for path containment security
+    **Property 2: Path Containment Security**
+    **Validates: Requirements 3.1, 3.4**
+    Generate varied invalid evidence paths; assert that the real validator rejects each with INVALID_MANIFEST/exit 2. Run at least 100 Hypothesis examples through the IDE Spec task and record the native property result.
+  - [ ]* 8.2 Write and run property test for evidence readiness
+    **Property 5: Done Task Needs Evidence**
+    **Validates: Requirements 4.1, 4.2, 4.3**
+    Generate varied done tasks with empty, missing, empty-file, or nonregular evidence; assert they never become READY_TO_REVIEW. Run at least 100 Hypothesis examples through the IDE Spec task and record the native property result.
