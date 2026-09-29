@@ -49,7 +49,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest tests -q
 ```
 
-The tests include example-level checks and four Hypothesis properties in [`tests/test_properties.py`](tests/test_properties.py). The latest local run reported **36 passed, 1 skipped**; the Kiro IDE Correctness workflow has not yet been run. The project Hooks currently use the Windows `.venv\Scripts\python.exe` path.
+The tests include example-level checks and four Hypothesis properties in [`tests/test_properties.py`](tests/test_properties.py). The latest local run reported **36 passed, 1 skipped**; a Kiro IDE Correctness run has not yet been independently observed. The project Hooks currently use the Windows `.venv\Scripts\python.exe` path.
 
 For the optional MCP server, install [`requirements-mcp.txt`](requirements-mcp.txt) into the same virtual environment and start Kiro with that environment's `Scripts` directory first on `PATH`. The project [MCP configuration](.kiro/settings/mcp.json) runs `python -m handoffcheck_mcp`, so `python` must resolve to the environment containing the SDK.
 
@@ -57,7 +57,7 @@ For the optional MCP server, install [`requirements-mcp.txt`](requirements-mcp.t
 
 - [Spec requirements](.kiro/specs/handoffcheck/requirements.md), [design](.kiro/specs/handoffcheck/design.md), and [tasks](.kiro/specs/handoffcheck/tasks.md) describe the Kiro-led implementation. The CLI entry point is [`handoffcheck.py`](handoffcheck.py); the reusable standard-library core is [`skills/check-handoff/scripts/handoffcheck_core.py`](skills/check-handoff/scripts/handoffcheck_core.py).
 - [Steering](.kiro/steering/handoff-constraints.md) records the read-only and evidence limits. [CLI Hook](.kiro/hooks/cli-quick-tests.json) and [IDE save Hook](.kiro/hooks/save-quick-tests.json) configure quick tests. The CLI Hook has been observed running; the IDE save Hook has not.
-- [`plugin.json`](plugin.json) and the [check-handoff skill](skills/check-handoff/SKILL.md) package a Kiro Power. A clean local copy of the package ran the ready example, but native Power installation and activation are pending.
+- [`plugin.json`](plugin.json) and the [check-handoff skill](skills/check-handoff/SKILL.md) package a Kiro Power. The official Kiro CLI installed a clean local export at user level. In a fresh synthetic workspace, Kiro activated the Power, read its skill, and ran the bundled checker; it returned `READY_TO_REVIEW` with exit code 0. Public GitHub installation and a demo are pending.
 - [MCP configuration](.kiro/settings/mcp.json) launches [`handoffcheck_mcp.py`](handoffcheck_mcp.py), whose single `inspect_example` tool accepts only `ready`, `missing`, or `invalid`. Its optional SDK dependency is pinned in [`requirements-mcp.txt`](requirements-mcp.txt). A real Kiro CLI MCP call and independent stdio checks have been observed; no IDE claim follows from that.
 - The [read-only custom agent](.kiro/agents/handoff-reviewer.json) was invoked in Kiro CLI to review the Spec, source, and examples.
 
